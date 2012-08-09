@@ -12,14 +12,17 @@ def list(limit)
 end
 
 def d(n)
-	lim = n/2 + 1
-	sum = 0
-	(1...lim).each do |i|
+	lim = Math.sqrt(n).to_i
+	lower_divs = []
+	(1..lim).each do |i|
 		if n % i == 0
-			sum += i
+			lower_divs << i
 		end
 	end
-	return sum
+	upper_divs = lower_divs.map {|i| n/i }
+	divisors = lower_divs.concat upper_divs
+	divisors.delete n
+	return divisors.inject(0, :+)
 end
 
 #puts d(220)
