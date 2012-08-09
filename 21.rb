@@ -5,7 +5,6 @@ def list(limit)
 		if a == d(b) and b < limit and a != b
 			amicables << a
 			#amicables << b
-			puts "found #{a} and #{b}"
 		end
 	end
 	return amicables
@@ -27,5 +26,5 @@ end
 
 #puts d(220)
 #puts d(284)
-#puts list(285).inject(0) {|sum, n| sum += n }
-puts list(10_000).inject(0) {|sum, n| sum += n }
+#puts list(285).inject(0, :+)
+puts list(10_000).inject(0, :+)
